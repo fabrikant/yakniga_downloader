@@ -83,7 +83,7 @@ def download_book(book_url, output_folder):
 
     book_name = book_soup.find("h1").get_text()
     book_path = Path(output_folder) / sanitize_filename(book_name)
-    Path(book_path).mkdir(exist_ok=True)
+    Path(book_path).mkdir(exist_ok=True, parents=True)
 
     mp3_list = get_file_list(book_soup)
     if mp3_list == None:
